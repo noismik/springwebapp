@@ -7,17 +7,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class HomeController {
+public class TestController {
 	//http://localhost:8080/springwebapp
 	@RequestMapping("/")
 	public String index() {
 		
-		log.info("실행1");
-<<<<<<< HEAD
-		log.info("실행2");
-=======
-
->>>>>>> branch 'master' of https://github.com/noismik/springwebapp.git
+		log.info("test");
+		log.info("잘되니?");
 		return "index";
 		
 		

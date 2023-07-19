@@ -9,7 +9,7 @@
 	<configs>
 		<config>src/main/resources/spring/dispatcher/ch01view-resolver.xml</config>
 		<config>src/main/resources/spring/root/ch01component-scan.xml</config>
-		<config>src/main/resources/spring/dispatcher/ch01static-resource.xml</config>
+		<config>src/main/resources/spring/dispatcher/ch01-static-resource.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

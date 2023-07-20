@@ -5,7 +5,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" href="/html_css_javascript/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="${pageContext.request.contextPath}/resources/image/logo-spring.png">
       <title>Insert title here</title>
       
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -22,8 +22,8 @@
                ${pageContext.request.contextPath}는 런타임시에 ContextPath를 리턴
                ContextPath: /servlet_jsp
               -->
-               <img src="${pageContext.request.contextPath}/common/images/tomcat.png" width="40" height="30" class="d-inline-block align-top">
-               Servlet/JSP
+                <img src="${pageContext.request.contextPath}/resources/image/logo-spring.png" width="30" height="30" class="d-inline-block align-top">
+               		전자정부프레임워크
             </a>
             <div>
                <div>

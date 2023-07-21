@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+   <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
 
@@ -13,36 +16,39 @@
             POST 방식으로 요청
          </div>
          <div class="card-body">
-            <form id="form0" method="post" action="method1" onsubmit="checkData()">
+            <form id="form1" method="post" action="method1">
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param1</span></div>
-                  <input type="text" name="param1" class="form-control" value="">
-                  <span class="param1-error text-danger"></span>
+                  <input type="text" name="param1" class="form-control" value="${ch04Form1.param1}">
+                  <!-- <span class="param1-error text-danger"></span> -->
+                  <form:errors path="ch04Form1.param1" cssClass="param1-error text-danger"/>
                </div>
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param2</span></div>
-                  <input type="text" name="param2" class="form-control" value="" >
-                  <span class="param2-error text-danger"></span>
+                  <input type="text" name="param2" class="form-control" value="${ch04Form1.param2}" >
+                 <!--  <span class="param2-error text-danger"></span> -->
+                    <form:errors path="ch04Form1.param2" cssClass="param2-error text-danger"/>
                </div>
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param3</span></div>
-                  <input type="text" name="param3" class="form-control" value="">
-                  <span class="param3-error text-danger"></span>
+                  <input type="text" name="param3" class="form-control" value="${ch04Form1.param3}">
+                  <!-- <span class="param3-error text-danger"></span> -->
+                  <form:errors path="ch04Form1.param3" cssClass="param3-error text-danger"/>
                </div>
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param4</span></div>
                   <div class="btn-group btn-group-toggle" data-toggle="buttons">
                      <label class="btn btn-secondary active">
-                       <input type="radio" name="param4" checked value="true"> true
+                       <input type="radio" name="param4" <c:if test="${ch04Form1.param4}">checked</c:if> value="true"> true
                      </label>
                      <label class="btn btn-secondary">
-                       <input type="radio" name="param4" value="false"> false
+                       <input type="radio" name="param4" <c:if test="${!ch04Form1.param4}">checked</c:if> value="false"> false
                      </label>
                   </div>
                </div>
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param5</span></div>
-                  <input type="date" name="param5" class="form-control">
+                  <input type="date" name="param5" class="form-control" value='<fmt:formatDate value="${ch04Form1.param5}" pattern="yyyy-MM-dd"/>'>
                   <span class="param5-error text-danger"></span>
                </div>
                <input class="mt-2 btn btn-info btn-sm" type="submit" value="요청"/>
@@ -50,7 +56,7 @@
          </div>
          <script>
             function checkData(form) {
-            	const form = document.querySelector("#form0"); 
+            	const form = document.querySelector("#form1"); 
             		
             		
                //form의 제출 기능을 off
@@ -62,7 +68,7 @@
                
                //입력 길이 체크
                let param1 = form.param1.value;
-               const param1Error = document.querySelector("#form0 .param1-error");
+               const param1Error = document.querySelector("#form1 .param1-error");
                param1Error.innerHTML = "";
                if(param1 === "") {
                   param1Error.innerHTML = "필수 입력 사항";
@@ -76,7 +82,7 @@
                
                //정규 표현식을 이용한 전화번호 형식 체크
                let param2 = form.param2.value;
-               const param2Error = document.querySelector("#form0 .param2-error");
+               const param2Error = document.querySelector("#form1 .param2-error");
                param2Error.innerHTML = "";
                if(param2 === "") {
                   param2Error.innerHTML = "필수 입력 사항";
@@ -92,7 +98,7 @@
                
                //정규 표현식을 이용한 이메일 형식 체크
                let param3 = form.param3.value;
-               const param3Error = document.querySelector("#form0 .param3-error");
+               const param3Error = document.querySelector("#form1 .param3-error");
                param3Error.innerHTML = "";
                if(param3 === "") {
                   param3Error.innerHTML = "필수 입력 사항";
@@ -109,7 +115,7 @@
                //날짜가 비었는지 체크
                let param5 = form.param5.value;
                console.log(param5);
-               const param5Error = document.querySelector("#form0 .param5-error");
+               const param5Error = document.querySelector("#form1 .param5-error");
                param5Error.innerHTML = "";
                if(param5 === "") {
                   param5Error.innerHTML = "필수 입력 사항";
@@ -127,56 +133,59 @@
    
       <div class="card m-2">
          <div class="card-header">
-            AJAX로 요청
+            	실습1
          </div>
          <div class="card-body">
-            <form id="form1" name="form1">
+            <form id="form2" name="form2" action="method2" onsubmit="checkData2()">
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param1</span></div>
-                  <input type="text" id="param1" name="param1" class="form-control">
-                  <span class="param1-error text-danger"></span>
+                  <input type="text" id="param1" name="param1" class="form-control" value="${ch04Form2.param1}">
+                  <!-- <span class="param1-error text-danger"></span> -->
+                  <form:errors path="ch04Form2.param1" cssClass="param1-error text-danger"/>
                </div>
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param2</span></div>
-                  <input type="text" id="param2" name="param2" class="form-control">
-                  <span class="param2-error text-danger"></span>
+                  <input type="text" id="param2" name="param2" class="form-control" value="${ch04Form2.param2}">
+                  <!-- <span class="param2-error text-danger"></span> -->
+                  <form:errors path="ch04Form2.param2" cssClass="param2-error text-danger"/>
                </div>
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param3</span></div>
-                  <input type="text" id="param3" name="param3" class="form-control">
-                  <span class="param3-error text-danger"></span>
+                  <input type="text" id="param3" name="param3" class="form-control" value="${ch04Form2.param3}">
+                 <!--  <span class="param3-error text-danger"></span> -->
+                  <form:errors path="ch04Form2.param3" cssClass="param3-error text-danger"/>
                </div>
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param4</span></div>
                   <div class="btn-group btn-group-toggle" data-toggle="buttons">
                      <label class="btn btn-secondary active">
-                       <input type="radio" id="radio1" name="param4" checked value="true"> true
+                       <input type="radio" id="radio1" name="param4" <c:if test="${ch04Form2.param4}">checked</c:if> value="true"> true
                      </label>
                      <label class="btn btn-secondary">
-                       <input type="radio" id="radio2" name="param4" value="false"> false
+                       <input type="radio" id="radio2" name="param4" <c:if test="${!ch04Form2.param4}">checked</c:if> value="false"> false
                      </label>
                   </div>
                </div>
                <div class="input-group">
                   <div class="input-group-prepend"><span class="input-group-text">param5</span></div>
-                  <input type="date" id="param5" name="param5" class="form-control" value="2030-12-05">
+                  <input type="date" id="param5" name="param5" class="form-control" value='<fmt:formatDate value="${ch04Form2.param5}" pattern="yyyy-MM-dd"/>'>
                </div>
-            </form>
             <div class="mt-2">
                <button class="btn btn-info btn-sm" onclick="requestPost()">POST 방식 요청</button>
             </div>
+            </form>
          </div>
          <script>
-            function requestPost() {
+            function checkData2() {
                const param1 = $("#param1").val(); //주민번호: xxxxxx-1,2,3,4xxxxxx
                const param2 = $("#param2").val(); //년월일: 19680315
-               const param3 = $("#param3").val(); //패스워드: 알파벳으로시작 최소 8자 초대 10
-               const param4 = $("#form1 input[name=param4]:checked").val();
+               const param3 = $("#param3").val(); //패스워드: 알파벳으로시작 최소 8자 최대 10
+               const param4 = $("#form2 input[name=param4]:checked").val();
                const param5 = $("#param5").val();
                
                let checkData = true;
                
-               const param1Error = $("#form1 .param1-error");
+       /*         const param1Error = $("#form2 .param1-error");
                param1Error.html("");
                if(param1 === "") {
                   param1Error.html("필수 입력 사항");
@@ -188,12 +197,12 @@
                      param1Error.html("주민번호 형식이 아님");
                      checkData = false;
                   }
-               }
+               } */
                
-               if(checkData) {
                   $.ajax({
-                     url:"method1",
+                     url:"method2",
                      method:"post",
+                     contentType: "application/xxx-www-form-urlencoded",
                      data: {
                         param1:param1, 
                         param2, 
@@ -203,11 +212,13 @@
                      },
                      success: function(data) {
                     	 
+                    	 //{result:"success"}
+                    	 //{result:"fail"}
                      }
-                  });
-                 
-               }
+                  })
             }
+            
+            
          </script>
       </div>
       
@@ -218,10 +229,10 @@
          <div class="card-body">
             <div class="card m-2">
                <div class="card-header">
-                  회원 가입 폼
+          			        실습2
                </div>
                <div class="card-body">         
-                  <form method="post" action="join">
+                  <form id="form3" method="post" action="join">
                      <div class="input-group">
                         <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
                         <input type="text" name="mid" class="form-control" value="${joinForm.mid}" autocomplete="username">
@@ -249,10 +260,10 @@
          
             <div class="card m-2">
                <div class="card-header">
-            	      로그인 폼
+            	      실습3
                </div>
                <div class="card-body">
-                  <form method="post" action="login">
+                  <form id="form4" method="post" action="login">
                      <div class="input-group">
                         <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
                         <input type="text" name="mid" class="form-control" value="${loginForm.mid}">

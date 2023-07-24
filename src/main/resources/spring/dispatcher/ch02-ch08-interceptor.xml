@@ -20,6 +20,14 @@
 			<bean class="com.mycompany.springwebapp.interceptor.Ch02InterceptorB"/>
 		
 		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/ch08/**"/>
+		<!-- bean의 의미: 객체를 생성해야해 -->
+			<mvc:exclude-mapping path="/resources/**"/>
+			<bean class="com.mycompany.springwebapp.interceptor.Ch08LoginCheckInterceptor"/>
+		
+		</mvc:interceptor>
 	</mvc:interceptors>
 
 	

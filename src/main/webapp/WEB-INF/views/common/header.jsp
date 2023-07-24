@@ -28,7 +28,6 @@
             </a>
             <div>
                <div>
-               		
               		 <c:if test="${login == null}">
                     <a href="${pageContext.request.contextPath}/ch08/content" class="btn btn-success btn-sm">로그인</a>
                      </c:if>

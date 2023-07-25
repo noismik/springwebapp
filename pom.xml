@@ -110,6 +110,16 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <version>2.0.1.Final</version>
   </dependency>
   
+  <!-- 
+   Ch09
+    멀티파트를 해석하기 위해 필요 (방법1)
+   -->
+  <dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.5</version>
+</dependency>
+  
   
   </dependencies>
   

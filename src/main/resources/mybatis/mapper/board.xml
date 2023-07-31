@@ -7,8 +7,18 @@
          select seq_bno.nextval from dual <!-- 시퀀스의 다음 번호를 가지고온다. 그리고 다음단계=>세팅하기 -->
       </selectKey>
       
-      insert into board (bno, btitle, bcontent, mid, bdate, bhitcount)
-      values(#{bno}, #{btitle}, #{bcontent}, #{mid}, sysdate, 0)
+      
+      <!--  null이 들어갈 컬럼값은 반드시 jdbcType을 명시해야함 -->
+      insert into board (
+      		 bno, btitle, bcontent, mid, bdate, bhitcount, 
+      		 battachoname, battachtype, battachsname, battachdata
+      ) values(
+      		 #{bno}, #{btitle}, #{bcontent}, #{mid}, sysdate, 0,
+      		 #{battachoname, jdbcType=VARCHAR}, 
+      		 #{battachtype, jdbcType=VARCHAR}, 
+      		 #{battachsname, jdbcType=VARCHAR}, 
+      		 #{battachdata, jdbcType=BLOB}
+      )
    </insert>
    
    <select id="selectByPage" parameterType="Pager" resultType="Board">

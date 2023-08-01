@@ -178,6 +178,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
        <artifactId>spring-security-core</artifactId>
        <version>5.5.8</version>
    </dependency>
+   
+   <!-- 
+   Ch14
+   AOP 사용을 위한 의존 라이브러리
+    -->
+    <dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.9.19</version>
+	    <scope>runtime</scope>
+	</dependency>
 
 
   </dependencies>

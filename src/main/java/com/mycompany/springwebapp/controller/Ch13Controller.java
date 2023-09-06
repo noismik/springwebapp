@@ -265,20 +265,16 @@ public class Ch13Controller {
    @Login
    public String updateBoardForm(int bno, Model model, HttpSession session) {
 	   Ch13Board board = boardService.getBoard(bno);
-	   
 /*	   Ch13Member member = (Ch13Member) session.getAttribute("ch13Login");
 	   if(!member.getMid().equals(board.getMid())) {
 		   return "redirect:/ch13/getBoardList";
 	   }*/
-	   
-		   
-		   
 	   model.addAttribute("board", board);
 	   return "ch13/updateBoardForm";
 	   
    }
 
-   @PostMapping("/updateBoard") 
+   @PostMapping("/updateBoard")
    @Login
    public String updateBoard(Ch13Board board, Model model) {
 	   boardService.modify(board);

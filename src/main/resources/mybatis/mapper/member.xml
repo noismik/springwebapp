@@ -7,7 +7,7 @@
       values(#{mid}, #{mname}, #{mpassword}, 1, 'ROLE_USER', #{memail})
    </insert>
    
-   <select id="selectByMid" parameterType="string">
+   <select id="selectByMid" resultType="Member" parameterType="string">
  	  select mid, mname, mpassword, menabled, mrole, memail
       from member where mid=#{mid}
 

@@ -25,11 +25,8 @@ public class Ch13MemberServiceImpl implements Ch13MemberService {
 		} 
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		member.setMpassword(passwordEncoder.encode(member.getMpassword()));	
-		
 		memberDao.insert(member);
 		return JoinResult.SUCCESS;
-			
-			
 		
 	}
 
@@ -40,7 +37,7 @@ public class Ch13MemberServiceImpl implements Ch13MemberService {
 			return LoginResult.FAIL_MID;
 		}
 		
-	
+		
 		
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		if(passwordEncoder.matches(member.getMpassword(), dbMember.getMpassword())) {

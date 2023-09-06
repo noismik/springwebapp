@@ -1,4 +1,3 @@
-
 	package com.mycompany.springwebapp.controller;
 
 	import org.slf4j.Logger;
